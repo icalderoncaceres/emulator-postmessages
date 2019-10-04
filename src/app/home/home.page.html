@@ -1,14 +1,20 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      <span id="title">TITULO</span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content overflow-scroll="true">
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <ion-item>
+      <ion-input placeholder="URL a embeber" [(ngModel)]="link"  ></ion-input>
+    </ion-item>
+    <ion-button (click)="onPresentar()" [disabled]="!link">
+      Embeber
+    </ion-button>
+    <h3><span>{{status}}</span></h3>
   </div>
+  <iframe *ngIf="urlSafe" [src]="urlSafe" id="contenedor"></iframe>
 </ion-content>
